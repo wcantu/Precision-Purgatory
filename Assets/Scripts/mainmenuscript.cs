@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-  
+
     }
 
     public void PlayGame()
@@ -30,27 +30,7 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("QUIT!");
-        Application.Quit(); 
+        Application.Quit();
     }
-
-// settings 
-    public void SetResolution(int width, int height, bool isFullScreen)
-    {
-        Screen.SetResolution(width, height, isFullScreen);
-    }
-
-    public void SetVSync(bool isEnabled)
-    {
-        QualitySettings.vSyncCount = isEnabled ? 1 : 0;
-    }
-
-    public void SetFullScreen(bool isFullScreen)
-    {
-        Screen.fullScreen = isFullScreen;
-    }
-
-
-
-
-
 }
+
