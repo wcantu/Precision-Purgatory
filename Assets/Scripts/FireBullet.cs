@@ -38,7 +38,7 @@ public class FireBullet : MonoBehaviour
             case BossType.Boss3:
                 
                 InvokeRepeating("FireInArc", 0f, 2f);
-                InvokeRepeating("FireContinuousSpiral", 0f, 0.4f); 
+                InvokeRepeating("FireContinuousSpiral", 0f, 0.07f); 
                 break;
 
         }
