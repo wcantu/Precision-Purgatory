@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float dashSpeed = 20f;
-    public float dashDuration = 0.2f; // Duration of dash in seconds.
+    public float dashDuration = 0.2f; 
     public Rigidbody2D rb;
     public Animator animator;
     [SerializeField]
@@ -42,16 +42,16 @@ public class PlayerMovement : MonoBehaviour
     {
         isDashing = true;
         dashTimeLeft = dashDuration;
-        Vector2 dashDirection = movement.normalized; // Dash in the last movement direction.
+        Vector2 dashDirection = movement.normalized; 
 
         while (dashTimeLeft > 0f)
         {
             rb.velocity = dashDirection * dashSpeed;
             dashTimeLeft -= Time.deltaTime;
-            yield return null; // Wait for the next frame.
+            yield return null; 
         }
         audioSource.Play();
-        rb.velocity = Vector2.zero; // Stops the dash by setting velocity to zero.
+        rb.velocity = Vector2.zero; 
         isDashing = false;
     }
 }

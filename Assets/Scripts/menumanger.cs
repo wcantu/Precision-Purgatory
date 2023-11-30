@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private float menuCameraSize = 5f; // Set this to your menu's camera size
-    [SerializeField] private Vector3 menuCameraPosition = new Vector3(0, 0, -10); // Set this to your menu's camera position
-    [SerializeField] private float gameCameraSize = 5f; // Set this to your game's camera size
-    [SerializeField] private Vector3 gameCameraPosition = new Vector3(0, 0, -10); // Set this to your game's camera position
+    [SerializeField] private float menuCameraSize = 5f; 
+    [SerializeField] private Vector3 menuCameraPosition = new Vector3(0, 0, -10); 
+    [SerializeField] private float gameCameraSize = 5f; 
+    [SerializeField] private Vector3 gameCameraPosition = new Vector3(0, 0, -10); 
 
     void Awake()
     {
@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene("Tutorial"); // Load the game scene
+        SceneManager.LoadScene("Tutorial");
 
    
         HeartSystem heartSystem = FindObjectOfType<HeartSystem>();

@@ -3,7 +3,7 @@ using UnityEngine;
 public class GemSpawner : MonoBehaviour
 {
     public GameObject gemPrefab;
-    public float spawnRadius = 5f; // Adjusted spawn radius
+    public float spawnRadius = 5f; 
     public int gemsToSpawn = 3;
     public float minGemSeparation = 2f;
 
@@ -18,7 +18,7 @@ public class GemSpawner : MonoBehaviour
         {
             Vector3 spawnPosition = GetRandomPosition();
             bool isTooClose = IsGemTooClose(spawnPosition);
-            int attempts = 0; // To prevent infinite loops
+            int attempts = 0; 
 
             while (isTooClose && attempts < 10) // Try a limited number of times
             {
@@ -49,20 +49,19 @@ public class GemSpawner : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
-        // Determine the visible bounds of the camera
+        
         float cameraHeight = 2f * Camera.main.orthographicSize;
         float cameraWidth = cameraHeight * Camera.main.aspect;
 
         // Define bounds to exclude the top-left part of the screen
-        // Adjust these values based on how much of the top-left you want to exclude
-        float excludeTopLeftX = cameraWidth * 0.25f; // Exclude 25% of the left part
-        float excludeTopLeftY = cameraHeight * 0.25f; // Exclude 25% of the top part
+        float excludeTopLeftX = cameraWidth * 0.25f; 
+        float excludeTopLeftY = cameraHeight * 0.25f;
 
         // Generate a random position within the adjusted bounds
         float randomX = Random.Range(-cameraWidth / 2, cameraWidth / 2 - excludeTopLeftX);
         float randomY = Random.Range(-cameraHeight / 2, cameraHeight / 2 - excludeTopLeftY);
 
-        // Return the random position. Adjust Z if needed.
-        return new Vector3(randomX, randomY, 0); // Use 0 for Z if the game is 2D
+        
+        return new Vector3(randomX, randomY, 0); 
     }
 }

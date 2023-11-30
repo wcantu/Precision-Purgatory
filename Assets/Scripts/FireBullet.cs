@@ -15,7 +15,7 @@ public class FireBullet : MonoBehaviour
     private BossType activeBoss;
 
     [SerializeField]
-    private GameObject bulletPrefab; // Assign the bullet prefab in the inspector
+    private GameObject bulletPrefab; 
 
     [SerializeField]
     private int bulletsAmount = 10;
@@ -23,7 +23,7 @@ public class FireBullet : MonoBehaviour
     [SerializeField]
     private float startAngle = 90f, endAngle = 270f;
 
-    private float angle; // Used for the spiral pattern
+    private float angle; 
 
     void Start()
     {
@@ -33,12 +33,12 @@ public class FireBullet : MonoBehaviour
                 InvokeRepeating("FireInArc", 0f, 3f);
                 break;
             case BossType.Boss2:
-                InvokeRepeating("FireContinuousSpiral", 0f, 0.033f); // Faster continuous spiral firing
+                InvokeRepeating("FireContinuousSpiral", 0f, 0.033f); 
                 break;
             case BossType.Boss3:
-                // Combines both patterns
-                InvokeRepeating("FireInArc", 0f, 2f); // Arc pattern
-                InvokeRepeating("FireContinuousSpiral", 0f, 0.4f); // Spiral pattern
+                
+                InvokeRepeating("FireInArc", 0f, 2f);
+                InvokeRepeating("FireContinuousSpiral", 0f, 0.4f); 
                 break;
 
         }
@@ -59,9 +59,9 @@ public class FireBullet : MonoBehaviour
 
     private void FireContinuousSpiral()
     {
-        // New Boss 2 pattern
+        
         FireBulletAtAngle(angle);
-        angle += 10f; // Incrementing angle by 10 degrees for each bullet
+        angle += 10f; 
     }
 
     private void FireBulletAtAngle(float firingAngle)
