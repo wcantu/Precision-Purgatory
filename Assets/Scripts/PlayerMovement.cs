@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration = 0.2f; // Duration of dash in seconds.
     public Rigidbody2D rb;
     public Animator animator;
+    [SerializeField]
+    private AudioSource audioSource;
 
     private Vector2 movement;
     private bool isDashing;
@@ -48,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             dashTimeLeft -= Time.deltaTime;
             yield return null; // Wait for the next frame.
         }
-
+        audioSource.Play();
         rb.velocity = Vector2.zero; // Stops the dash by setting velocity to zero.
         isDashing = false;
     }

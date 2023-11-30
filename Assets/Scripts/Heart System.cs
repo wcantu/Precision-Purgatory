@@ -11,6 +11,8 @@ public class HeartSystem : MonoBehaviour
     public string nextStageName;
     [SerializeField]
     private AudioSource audioSource;
+    [SerializeField]
+    private AudioSource audioSource2;
     public Text pointsText;
 
     void Start()
@@ -86,6 +88,7 @@ public class HeartSystem : MonoBehaviour
         {
             pointsText.text = "Points: " + points.ToString();
         }
+        audioSource2.Play();
     }
 
     public void ResetGame()
