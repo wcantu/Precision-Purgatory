@@ -23,7 +23,7 @@ public class SoundOptions : MonoBehaviour
         else
         {
             masterSlider.value = PlayerPrefs.GetFloat("Master");
-            musicSlider.value = PlayerPrefs.GetFloat("Music");
+            musicSlider.value = PlayerPrefs.GetFloat("Music ");
             sfxSlider.value = PlayerPrefs.GetFloat("SFX");
         }
 
