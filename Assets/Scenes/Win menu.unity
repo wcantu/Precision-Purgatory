@@ -1195,7 +1195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7347378205715506849, guid: 0c34a2274616a8741a0fcf8847f5e541, type: 3}
       propertyPath: m_text
-      value: 'restart '
+      value: Play again!
       objectReference: {fileID: 0}
     - target: {fileID: 7585709385640299551, guid: 0c34a2274616a8741a0fcf8847f5e541, type: 3}
       propertyPath: m_Name
@@ -1203,7 +1203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7585709385640299551, guid: 0c34a2274616a8741a0fcf8847f5e541, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

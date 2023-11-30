@@ -9,14 +9,25 @@ public class HeartSystem : MonoBehaviour
     public int points;
     public int pointsToWin = 3;
     public string nextStageName;
-
+    [SerializeField]
+    private AudioSource audioSource;
     public Text pointsText;
 
     void Start()
     {
-        ResetHearts();
-        points = 0;
-        UpdatePointsText();
+        ResetGame();
+    }
+
+
+    // Subscribing to the OnUpdatePoints event from GameEvents when the GameObject is enabled.
+    void OnEnable()
+    {
+        GameEvents.OnUpdatePoints += UpdatePointsDisplay;
+    }
+    // Unsubscribing from the OnUpdatePoints event when the GameObject is disabled.
+    void OnDisable()
+    {
+        GameEvents.OnUpdatePoints -= UpdatePointsDisplay;
     }
 
     void Update()
@@ -46,7 +57,9 @@ public class HeartSystem : MonoBehaviour
         if (life <= 0)
         {
             // Actions before transitioning to the Dead menu (e.g., playing sound or animation)
+           
         }
+        audioSource.Play();
     }
 
     public void ResetHearts()
@@ -66,12 +79,26 @@ public class HeartSystem : MonoBehaviour
         }
     }
 
-    // Change the method to public so it can be accessed from other scripts.
-    public void UpdatePointsText()
+    private void UpdatePointsDisplay(int newPoints)
     {
+        points = newPoints;
         if (pointsText != null)
         {
             pointsText.text = "Points: " + points.ToString();
         }
+    }
+
+    public void ResetGame()
+    {
+        ResetHearts();
+        points = 0;
+        UpdatePointsDisplay(points);
+    }
+
+    // Method to report points changes to the GameEvents (notifying the event).
+    public void AddPoints(int pointsToAdd)
+    {
+        points += pointsToAdd;
+        GameEvents.ReportPoints(points);
     }
 }

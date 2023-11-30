@@ -23,8 +23,8 @@ public class GemCollector : MonoBehaviour
             {
                 heartSystem.points++; // Increment the points.
 
-                // Update the UI text
-                heartSystem.UpdatePointsText();
+                // Notifying the GameEvents about the points update (triggering the event).
+                GameEvents.ReportPoints(heartSystem.points);
 
                 Destroy(other.gameObject); // Destroy the gem.
 

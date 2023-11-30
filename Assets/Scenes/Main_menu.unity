@@ -2255,9 +2255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127ecfeb5c409184a92c203cc0e3cf13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuCameraSize: 5
-  menuCameraPosition: {x: 0, y: 0, z: -10}
-  gameCameraSize: 4.56
+  menuCameraSize: 367.5032
+  menuCameraPosition: {x: 880, y: 377, z: -10}
+  gameCameraSize: 4.564646
   gameCameraPosition: {x: -0.04, y: -0.49, z: -10}
 --- !u!1001 &206139507400148373
 PrefabInstance:
