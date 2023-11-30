@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
@@ -27,9 +25,29 @@ public class BulletScript : MonoBehaviour
         moveDirection = dir;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log($"Bullet collided with: {collision.tag}");
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<HeartSystem>().TakeDamage(1);
+            Destroy();
+        }
+        else if (collision.CompareTag("GEM"))
+        {
+            // If the bullet hits a GEM, ignore it.
+            Debug.Log("Bullet hit a GEM, ignoring...");
+        }
+        else
+        {
+            // Log any other collisions that might be causing unexpected behavior.
+            Debug.Log($"Bullet hit an unhandled object: {collision.name} with tag: {collision.tag}");
+        }
+    }
+
     private void Destroy()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // Deactivate the bullet.
     }
 
     private void OnDisable()
